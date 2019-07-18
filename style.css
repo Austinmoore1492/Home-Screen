@@ -19,6 +19,39 @@ body {
   background-blend-mode: color;
 }
 
+.navbar {
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 2.3rem;
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar li {
+  display: inline;
+  padding: 15px;
+}
+
+.navbar a {
+  opacity: 1;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  
+}
+
+.navbar li a:hover {
+  color: #4fa7ff;
+}
+
+.navbar a:visited {
+  color: #fff;
+}
+
 #time {
   font-size: 8rem;
 }
@@ -51,6 +84,9 @@ h2 {
 }
 
 @media(max-width: 900px){
+  .navbar {
+    font-size: 1.8rem;
+  }
   #time {
     font-size: 6rem;
   } 
@@ -63,19 +99,25 @@ h2 {
 }
 
 @media(max-width: 600px), (max-height: 500px) {
+  .navbar {
+    display: none;
+  }
   #time {
     font-size: 3.5rem
   }
   #greeting, #name {
     font-size: 2rem;
   }
-
   h2 {
     display: none;
   }
 }
 
 @media(max-height: 500px){
+  .navbar {
+    display: block;
+    font-size: 0.9rem;
+  }
   #time{
     font-size: 5rem;
   } 
