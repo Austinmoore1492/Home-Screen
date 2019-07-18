@@ -4,6 +4,41 @@ const time = document.getElementById('time'),
       focus = document.getElementById('focus'),
       container = document.querySelector('.container');
 
+
+name.addEventListener('blur', () => getName(userName));
+focus.addEventListener('blur', () => getFocus(userFocus));
+
+//Get Users name and focus from local storage
+let userName = JSON.parse(localStorage.getItem("userName")) || [];
+let userFocus = JSON.parse(localStorage.getItem("userFocus")) || [];
+
+//Show Users name 
+function showUserName(userName) {
+  if(userName === [] || userName === [""] || userName === null){
+      name.innerHTML = 'Name Here'
+  } else {
+      name.innerHTML = userName;
+  }
+}
+
+function getName(userName){
+  userName.pop();
+  userName.push(name.innerText);
+  localStorage.setItem("userName", JSON.stringify(userName));
+}
+
+//Show Users foucs
+function showUserFocus(userFocus) {
+  focus.innerHTML = userFocus
+}
+
+//Get Users focus
+function getFocus(userFocus){
+  userFocus.pop();
+  userFocus.push(focus.innerText);
+  localStorage.setItem("userFocus", JSON.stringify(userFocus));
+}
+
 //show time
 function showTime(){
   let today = new Date(),
@@ -27,7 +62,6 @@ function addZero(n){
   return (parseInt(n, 10) < 10 ? '0' : '') + n;
 }
 
-
 const morningPics = ['https://images.pexels.com/photos/1650830/pexels-photo-1650830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/910411/pexels-photo-910411.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/750820/pexels-photo-750820.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'];
 
 const afternoonPics = ['https://images.pexels.com/photos/1198507/pexels-photo-1198507.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/1117403/pexels-photo-1117403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/580276/pexels-photo-580276.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'];
@@ -45,7 +79,7 @@ function setGreet(){
   if(hour <= 11){
     //morning
     document.body.style.background = `url(${randMorningPic}) no-repeat center center / cover, linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0))`;
-    greeting.textContent = 'Good Moring';
+    greeting.textContent = 'Good Morning';
 
   } else if(hour <= 16){
     //afternoon
@@ -59,5 +93,7 @@ function setGreet(){
   }
 }
 
+showUserName(userName)
+showUserFocus(userFocus)
 showTime();
 setGreet();
