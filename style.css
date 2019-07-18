@@ -115,11 +115,18 @@ h2 {
 
 @media(max-height: 500px){
   .navbar {
-    display: block;
+    display: inline-block;
     font-size: 0.9rem;
+    width: auto;
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+    padding: 0
   }
+  .navbar li {
+    display: block;
+  } 
   #time{
-    font-size: 5rem;
+    font-size: 4rem;
   } 
 }
 
