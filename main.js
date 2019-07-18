@@ -14,11 +14,8 @@ let userFocus = JSON.parse(localStorage.getItem("userFocus")) || [];
 
 //Show Users name 
 function showUserName(userName) {
-  if(userName === [] || userName === [""] || userName === null){
-      name.innerHTML = 'Name Here'
-  } else {
-      name.innerHTML = userName;
-  }
+  name.focus();
+  name.innerHTML = userName;
 }
 
 function getName(userName){
@@ -78,17 +75,17 @@ function setGreet(){
   
   if(hour <= 11){
     //morning
-    document.body.style.background = `url(${randMorningPic}) no-repeat center center / cover, linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0))`;
+    document.body.style.background = `url(${randMorningPic}) no-repeat center center / cover, linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0),rgba(0,0,0,0.9))`;
     greeting.textContent = 'Good Morning';
 
   } else if(hour <= 16){
     //afternoon
-    document.body.style.background = `url(${randAfternoonPic}) no-repeat center center / cover, linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0))`;
+    document.body.style.background = `url(${randAfternoonPic}) no-repeat center center / cover, linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0),rgba(0,0,0,0.9))`;
     greeting.textContent = 'Good Afternoon'
 
   } else{
     //evening
-    document.body.style.background = `url(${randEveningPic}) no-repeat center center / cover, linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8))`;
+    document.body.style.background = `url(${randEveningPic}) no-repeat center center / cover, linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0),rgba(0,0,0,0.8))`;
     greeting.textContent = 'Good Evening'
   }
 }
